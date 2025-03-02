@@ -555,7 +555,9 @@ nav .nav-links .resume-btn:hover {
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="Jithendra_kumar.pdf" target="_blank" class="resume-btn">View Resume</a></li>
+                <li>
+                    <a href="Jithendra_kumar.pdf" class="resume-btn" onclick="openResume(event)">View Resume</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -814,7 +816,11 @@ nav .nav-links .resume-btn:hover {
                     console.log(error);
                 });
         });
-        
+    function openResume(event) {
+        event.preventDefault(); // Prevent default link behavior
+        window.open('Jithendra_kumar.pdf', 'ResumePopup', 'width=800,height=600,scrollbars=yes,resizable=yes');
+    }
+   
     </script>
 </body>
 </html>
