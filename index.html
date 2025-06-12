@@ -442,62 +442,124 @@
    
    /* Certifications Section */
    .certifications {
-       background-color: #fff;
-       padding: 4rem 0;
-       text-align: center;
-   }
-   
-   .certifications h2 {
-       font-size: 2.5rem;
-       margin-bottom: 2rem;
-       animation: fadeInUp 1s ease-in-out;
-   }
-   
-   .certifications-grid {
-       display: grid;
-       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-       gap: 2rem;
-   }
-   
-   .certification {
-       background-color: #f4f4f9;
-       padding: 1.5rem;
-       border-radius: 10px;
-       transition: transform 0.3s, box-shadow 0.3s;
-       animation: fadeInUp 1.5s ease-in-out;
-   }
-   
-   .certification:hover {
-       transform: translateY(-10px);
-       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-   }
-   
-   .certification img {
-       width: 100%;
-       height: 60%;
-       border-radius: 10px;
-       margin-bottom: 1rem;
-   }
-   
-   .certification h3 {
-       font-size: 1.2rem;
-       margin: 0.5rem 0;
-   }
-   
-   .certification .btn {
-       background-color: #2575fc;
-       color: #fff;
-       padding: 0.5rem 1rem;
-       text-decoration: none;
-       border-radius: 5px;
-       font-size: 0.9rem;
-       transition: background-color 0.3s, transform 0.3s;
-   }
-   
-   .certification .btn:hover {
-       background-color: #1a5bbf;
-       transform: translateY(-3px);
-   }
+    padding: 4rem 0;
+    text-align: center;
+    background-color: #f8f3f3;
+    position: relative;
+}
+
+.certifications h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Wrapper for scroll arrows and overflow control */
+.certifications-wrapper {
+    position: relative;
+    overflow: hidden;
+    max-width: 90%;
+    margin: auto;
+}
+
+/* Horizontal scroll behavior */
+.certifications-grid {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.5s ease-in-out;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.certifications-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.certification {
+    background-color: #f4f4f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 0 0 calc(20% - 1.5rem); /* Same as .project */
+    min-width: 250px;
+    scroll-snap-align: start;
+}
+
+.certification:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.certification img {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.certification h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.certification .btn {
+    background-color: #2575fc;
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.certification .btn:hover {
+    background-color: #1a5bbf;
+    transform: translateY(-3px);
+}
+
+/* Reusable scroll buttons */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 1000;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: background-color 0.3s;
+}
+
+.scroll-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.scroll-button.left {
+    left: 10px;
+}
+
+.scroll-button.right {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .certification {
+        flex: 0 0 calc(60% - 1rem);
+    }
+
+    .scroll-button {
+        display: none;
+    }
+}
+
    
    /* Contact Section */
    .contact {
@@ -623,12 +685,18 @@
                 <img src="jk.jpg" alt="Profile Picture" class="profile-img">
             </div>
             <div class="about-text">
-                <p class="intro-text">
-                    I'm a B.Tech Computer Science student at KL University with a current CGPA of 9.53. I specialize in web development, cybersecurity, and blockchain technologies. My expertise includes React, Spring Boot, MERN Stack, Java, ASP.NET MVC, Oracle Cloud (Generative AI), and blockchain development.
+                <p class="intro-text" style="font-size: 1.05rem; line-height: 1.5; color: #333; max-width: 800px; margin: auto;">
+                    🎓 <strong style="color:#1a73e8;">B.Tech Computer Science</strong> student at <strong>KL University</strong> (CGPA: <strong style="color:#4CAF50;">9.53</strong>) with a strong drive to solve real-world problems through code and creativity. 
+                    <br>
+                    💻 Skilled in <strong style="color:#FF5722;">Full-Stack Development</strong> using <strong>React</strong>, <strong>Spring Boot</strong> and <strong>MERN Stack</strong>, backed by robust programming in <strong>Java</strong>.
+                    <br>
+                    🔐 Focused on <strong style="color:#9C27B0;">Cybersecurity</strong> & <strong style="color:#3F51B5;">Blockchain Development</strong> to ensure modern and future-ready solutions.
+                    <br>
+                    🛠️ <strong style="color:#E91E63;">Certified ServiceNow System Administrator</strong> (CSA), with hands-on experience in <strong>ITSM</strong> and digital workflow automation on the <strong>ServiceNow</strong> platform.
+                    <br>
+                    🚀 Continuously exploring and upgrading my skills, passionate about technology, and eager to contribute to innovative tech ecosystems.
                 </p>
-                <p class="intro-text">
-                    I have hands-on experience in building scalable web applications, securing networks, and developing decentralized applications. I am passionate about solving real-world problems using technology and constantly learning new skills to stay ahead in the field.
-                </p>
+                
                 <div class="skills-highlight">
                     <div class="skill-item">
                         <i class="fas fa-code"></i>
@@ -641,6 +709,10 @@
                     <div class="skill-item">
                         <i class="fas fa-link"></i>
                         <span>Blockchain</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-tools"></i>
+                        <span>ServiceNow</span>
                     </div>
                 </div>
             </div>
@@ -677,6 +749,12 @@
                 <h3>Data Analysis</h3>
                 <p>Pandas, NumPy, Data Visualization (Matplotlib, Seaborn)</p>
             </div>
+            <div class="skill">
+                <i class="fas fa-tools"></i>
+                <h3>IT Service Management (ITSM)</h3>
+                <p><b>ServiceNow</b></p>
+            </div>
+            
         </div>
 
         <h2>Soft Skills</h2>
@@ -771,6 +849,12 @@
                 <h3>Red Hat Ex-183</h3>
                 <a href="https://www.credly.com/badges/9bdfb8e0-a983-42b5-bdb2-c60689cfac24/public_url" class="btn" target="_blank">View</a>
             </div>
+
+            <div class="certification">
+                <img src="ServiceNow.png" alt="ServiceNow CSA">
+                <h3>ServiceNow CSA</h3>
+                <a href="ServiceNowCSA.pdf" class="btn" target="_blank">View</a>
+            </div>
             <div class="certification">
                 <img src="AA360.png"  alt="RPA Certificate">
                 <h3>Automation Anywhere</h3>
@@ -781,6 +865,7 @@
                 <h3>Oracle Cloud Infrastructure</h3>
                 <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=839343F095617D5EA86DB74234295F430D74542B52C61931EBC3D3644984A7FD" class="btn" target="_blank">View</a>
             </div>
+            
             <div class="certification">
                 <img src="salesforece.png" alt="Salesforce AI Associate Certificate">
                 <h3>Salesforce AI Associate</h3>
@@ -789,9 +874,11 @@
             <div class="certification">
                 <img src="defi.jpg" alt="Salesforce AI Associate Certificate">
                 <h3>Defi-Fintech</h3>
-                <a href="https://www.salesforce.com/trailblazer/ciy5ypaithv2a6qhh0" class="btn" target="_blank">View</a>
+                <a href="Fintech.pdf" class="btn" target="_blank">View</a>
             </div>
+            
         </div>
+       
     </div>
 </section>
 
@@ -829,7 +916,6 @@
         </div>
     </div>
 </footer>
-
     <!-- Smooth Scroll Script -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
